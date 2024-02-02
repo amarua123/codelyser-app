@@ -1,0 +1,34 @@
+<!-- 
+
+
+<div class="email-box">
+  <h2 mat-dialog-title>Email Invite Message</h2>
+<div mat-dialog-content>
+  <p>Enter email message:</p>
+  <textarea matInput [(ngModel)]="emailMessage" rows="5"></textarea>
+</div>
+<div mat-dialog-actions class="buttons">
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onOkClick()">OK</button>
+</div>
+</div> -->
+
+
+
+<div class="email-box">
+  <h2 mat-dialog-title>Email Invite Message</h2>
+  <div mat-dialog-content>
+    <p>Enter email addresses (one per line):</p>
+    <!-- <input type="text" matInput [(ngModel)]="emailAddresses" > -->
+    <textarea matInput [(ngModel)]="emailAddresses" rows="4"></textarea>
+    <p>Enter email message:</p>
+    <textarea matInput [(ngModel)]="emailMessage" rows="4">{{ defaultEmailMessage }}</textarea>
+  </div>
+  <div mat-dialog-actions class="buttons">
+    <button mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="onOkClick()">OK</button>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,8 @@
+<!-- question-dialog.component.html -->
+<h2 mat-dialog-title>Question Descriptions</h2>
+<div mat-dialog-content>
+  <p *ngFor="let description of data.descriptions">{{ description }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>

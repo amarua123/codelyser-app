@@ -1,0 +1,30 @@
+<div class="complete-form">
+  <p>
+    <mat-toolbar>
+      <span>Please fill your details to start the test</span>
+    </mat-toolbar>
+  </p>
+  
+  <!-- candidate-form.component.html -->
+  <form (ngSubmit)="onSubmit()" #candidateForm="ngForm">
+    <div class="form-container">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput id="name" name="name" [(ngModel)]="candidate.name" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="text" id="email" name="email" [(ngModel)]="candidate.email" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Phone No.</mat-label>
+        <input matInput type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)]="candidate.phoneNo" required>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="!candidateForm.valid">Submit</button>
+    </div>
+  </form>
+  
+</div>

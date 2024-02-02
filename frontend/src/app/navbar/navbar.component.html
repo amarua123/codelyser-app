@@ -1,0 +1,11 @@
+<nav>
+  <mat-paginator [length]="questions.length" [pageSize]="1" [pageIndex]="currentIndex"
+    (page)="goToQuestion($event.pageIndex)">
+  </mat-paginator>
+
+  <!-- <ul>
+    <li *ngFor="let question of questions; let i = index" [class.active]="i === currentIndex">
+      <a (click)="goToQuestion(i)"> {{ i + 1 }}</a>
+    </li>
+  </ul> -->
+</nav>

@@ -1,0 +1,60 @@
+
+
+<div class="navbar">
+    <!-- Search bar in the navbar -->
+    <div class="search-bar-wrapper" style="margin-right: auto;">
+        <input type="text" style="color:black;" placeholder="Search for users" [(ngModel)]="searchMail" (input)="searchUsers()" />
+        
+    </div>
+   
+    <!-- Add User button in the navbar -->
+    <div class="add-user-button-wrapper">
+        <button mat-raised-button style="background-color:#365486;" (click)="storeCheckboxValues()">
+            <mat-icon *ngIf="!displayForm" (click)="addUserToGroup()">add</mat-icon>Add User
+        </button>
+    </div>
+</div>
+
+<div class="manage-group-container" *ngIf="searchMail.trim() !== ''">
+    <div class="content-container">
+        <div class="existing-groups">
+            <div *ngIf="displayForm" class="search-bar">
+                
+                <input type="text" placeholder="Search for users" [(ngModel)]="searchMail" (input)="searchUsers()" />
+            </div>
+            <div>
+                <div class="container-box">
+                    <ul>
+                        <li *ngFor="let user of selectedCheckboxValues" style="color:black;">
+                            <input type="checkbox" [(ngModel)]="user.selected" (change)="onCheckboxChange(user)" />
+                            {{ user.name }} - {{ user.email }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h2 style="text-align: center;">Users in Group</h2>
+<div *ngIf="users && users.length > 0">
+    
+    <!-- <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+           Add more columns as needed -->
+        <!-- </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td> -->
+          <!-- Add more columns as needed -->
+        <!-- </tr> -->
+      <!-- </tbody> -->
+    <!-- </table> -->
+  </div>
+  <app-user-details></app-user-details>
+
+<router-outlet></router-outlet>

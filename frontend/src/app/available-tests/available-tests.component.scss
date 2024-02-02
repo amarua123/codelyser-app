@@ -1,0 +1,96 @@
+:host{
+  display: flex;
+  height:100vh;
+  // background: linear-gradient(to right, #db7ef3, #8fa2f3);
+  background-color: #eff4f4;
+}
+// Your component-specific styles
+.container{
+    margin:auto;
+    margin-top:20px;
+    width: 65vw;
+}
+
+input{
+  width: 500px;
+  height: 40px;
+}
+input[type="text"]{
+  outline: none;
+}
+.top-container{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.create-testbutton{
+  height:40px;
+  width: 120px;
+  margin-left: 20px;
+  
+}
+div {
+    margin-bottom: 20px;
+    
+  
+    mat-form-field {
+      width: 100%;
+    }
+  }
+  
+  mat-table {
+    // border-radius: 5px;
+    width: 80%;
+    margin-top: 20px;
+    overflow: auto;
+    
+  
+    .mat-row,
+    .mat-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #7FC7D9;
+  
+      button {
+        margin: 0 5px;
+      }
+    }
+  
+    .mat-header-row {
+      background-color: #7FC7D9;
+    }
+  
+    .mat-cell,
+    .mat-header-cell {
+      flex: 1;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #7FC7D9;
+    }
+  
+    .mat-row {
+      &:hover {
+        background-color: #7FC7D9;
+      }
+    }
+  }
+  
+  .search-form {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .search-form input[type="text"] {
+    padding-left: 40px; /* Adjust according to the icon size */
+  }
+  
+  .search-form mat-icon {
+    position: absolute;
+    top: 30%;
+    left: 10px; /* Adjust according to the desired position */
+    transform: translateY(-50%);
+  }
+
+  

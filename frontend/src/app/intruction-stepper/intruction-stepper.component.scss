@@ -1,0 +1,92 @@
+.instructions-card{
+  padding-left: 5rem;
+  padding-top: 12vh;
+  padding-bottom: 4vh;
+  font-size: large;
+  max-width: 80vw;
+  margin: auto;
+}
+.step-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%; /* Adjust as needed */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  margin-top: 20px; /* Adjust as needed */
+  text-align: center;
+}
+
+.fixed{
+  align-items: baseline;
+}
+
+mat-card-content{
+  height: 40vh;
+}
+
+.custom-green-button {
+  background-color: #4caf50; /* Green color */
+  color: white;
+}
+
+.custom-green-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.custom-green-button:active {
+  background-color: #3c873a; /* Even darker green on click */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+mat-form-field {
+  width: 300px;
+  margin-bottom: 15px; /* Add margin between form fields */
+}
+
+button {
+  margin-top: 10px; /* Add margin above the button */
+  margin-bottom: 10px;
+}
+
+mat-toolbar {
+  background-color: white;
+}
+
+.warning-message {
+  background-color: #ffcccc;  // Light red background
+  color: #ff0000;  // Red text color
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+
+  // Add box shadow for a subtle effect
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  // Add transition for a smooth appearance
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.warning-message:hover {
+  background-color: #ff9999;  // Slightly darker red on hover
+  color: #cc0000;  // Slightly darker red text color on hover
+}
+
+.invalid-input {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}

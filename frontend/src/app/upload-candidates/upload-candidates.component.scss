@@ -1,0 +1,72 @@
+/* Styling for the container */
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px; /* Add some margin for spacing */
+  }
+  
+  /* Styling for the file input */
+  .file-input {
+    display: none;
+  }
+  
+  /* Styling for the custom file input button */
+  .upload-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Add some spacing between the button and the label */
+  }
+  
+  /* Hover effect for the custom file input button */
+  .upload-button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Styling for the file input label */
+  .file-input-label {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Styling for the file input text to match the label */
+  .file-input-label .file-input-text {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for the label */
+  .file-input-label:hover .file-input-text {
+    background-color: #2980b9;
+  }
+  
+  /* Display the selected file name next to the label */
+  .file-input-label::after {
+    content: attr(data-content); /* Display the selected file name */
+    display: block;
+    margin-top: 5px;
+    color: #555;
+  }
+  
+  /* Additional styling for the file input */
+  .file-input-label input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  

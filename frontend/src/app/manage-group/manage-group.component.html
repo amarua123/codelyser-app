@@ -1,0 +1,38 @@
+<div class="navbar">
+  <div class="content-container">
+    <div class="existing-groups">
+      <button mat-raised-button Style="background-color: #365486;color:white" (click)="toggleFormDisplay()" class="add-group-button">
+        <mat-icon *ngIf="!displayForm">add</mat-icon>
+        {{!displayForm? "Create New Group" : "Cancel"}}
+      </button>
+      <h2>Existing Groups</h2>
+  </div>
+  </div>
+  </div>
+      <div *ngIf="displayForm" class="form-box">
+        <form [formGroup]="groupForm" >
+          <mat-form-field>
+            
+            <input matInput type="text" id="groupName" formControlName="groupName" [(ngModel)]="groupName" />
+          </mat-form-field>
+          
+
+          <button mat-raised-button color="primary" type="submit" (click)="addGroup($event)">Add Group</button>
+        </form>
+      </div>
+    
+
+    <div *ngIf="groups && groups.length > 0" class="existing-groups">
+      <!-- <h2>Existing Groups</h2> -->
+      <hr class="divider"> 
+      <div class="partion">
+        <div class="container-box">
+          <ul>
+            <li *ngFor="let group of groups" (click)="fetchUsersByGroup(group)">{{ group }}</li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+<router-outlet></router-outlet>

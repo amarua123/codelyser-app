@@ -1,0 +1,26 @@
+h2{
+    text-align: center;
+font-weight: bold;
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.email-box{
+//  background-color: rgb(141, 141, 141);
+ border-radius: 20px;
+//  height: 300px;
+//  width: 400px;
+height: 450px;
+width: 380px;
+margin-left: 6px;
+}
+
+textarea{
+    width: 100%;
+    
+    
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { UploadQuestionComponent } from './upload-question.component';
+
+describe('UploadQuestionComponent', () => {
+  let component: UploadQuestionComponent;
+  let fixture: ComponentFixture<UploadQuestionComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [UploadQuestionComponent]
+    })
+    .compileComponents();
+    
+    fixture = TestBed.createComponent(UploadQuestionComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

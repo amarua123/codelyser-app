@@ -1,0 +1,28 @@
+
+<div class="container">
+    <!-- <h1>Users List</h1> -->
+    <div *ngIf="userData && userData.length > 0">
+      <mat-table [dataSource]="userData">
+        <ng-container matColumnDef="name">
+          <mat-header-cell style="background-color: #365486;color:white" *matHeaderCellDef>Name</mat-header-cell>
+          <mat-cell *matCellDef="let user">{{ user.name }}</mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="email">
+          <mat-header-cell style="background-color: #365486;color:white" *matHeaderCellDef>Email</mat-header-cell>
+          <mat-cell *matCellDef="let user">{{ user.email }}</mat-cell>
+        </ng-container>
+  
+        
+        <mat-header-row *matHeaderRowDef="['name', 'email']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['name', 'email']"></mat-row>
+      </mat-table>
+    </div>
+    <div *ngIf="userData && userData.length === 0">
+      <p>No users found.</p>
+    </div>
+    <div *ngIf="!userData">
+      <p>Loading user data...</p>
+    </div>
+  </div>
+  

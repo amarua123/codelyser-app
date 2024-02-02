@@ -1,0 +1,109 @@
+<app-navigation></app-navigation>
+<div class="container">
+  
+<div class="top-container">
+
+  <button mat-raised-button class="back-button" (click)="backButton()"><i class="fas fa-arrow-left"></i></button>
+    <form style="height: 65px;border-radius: 5px;" class="search-form">
+      <mat-icon>search</mat-icon>
+        <input
+          type="text"
+          placeholder="Search by Title"
+          name = "search-bar"
+          [(ngModel)]="searchQuery" 
+          (input)="filterTests()"
+        />
+    </form>
+      <button mat-raised-button style="background-color:#365486;color:white" class="create-testbutton" (click)="candidatesList()">Create<mat-icon>edit</mat-icon></button>
+  </div> 
+  
+  <mat-table [dataSource]="filterDataSource" class="mat-elevation-z8" style="margin-top:0;">
+   
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> Test Title </mat-header-cell>
+      <mat-cell *matCellDef="let test"> {{ test.title }} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let test">
+        <mat-slide-toggle color="primary" [(ngModel)]="test.published"
+          >Publish Test</mat-slide-toggle
+        >
+        <!-- <button mat-raised-button color="primary" [disabled]="test.status === 'live'" (click)="toggleStatus(test)">
+          {{ test.status }}
+        </button> -->
+      </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="editTest">
+      <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+      <mat-cell *matCellDef="let test">
+        <button mat-icon-button  *ngIf="!test.published"(click)="editTest(test)">
+          <mat-icon >edit</mat-icon> 
+        </button>
+      </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="viewQuestions">
+      <mat-header-cell *matHeaderCellDef> View Test</mat-header-cell>
+      <mat-cell *matCellDef="let test">  
+        <button mat-icon-button (click)="viewQuestions(test)">
+          <mat-icon >visibility</mat-icon>
+        </button>
+        </mat-cell>
+    </ng-container>
+   
+      <ng-container matColumnDef="copyLink">
+      <mat-header-cell *matHeaderCellDef> Copy Link</mat-header-cell>
+      <mat-cell *matCellDef="let test">
+        <button mat-icon-button (click)="copyLink(test)">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+    </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="sendLink">
+          <mat-header-cell *matHeaderCellDef> Send Link </mat-header-cell>
+          <mat-cell *matCellDef="let test">
+            <button mat-icon-button (click)="openEmailInviteMessageDialog(test.title)">
+              <mat-icon> email</mat-icon>
+              </button>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="results">
+      <mat-header-cell *matHeaderCellDef> Results </mat-header-cell>
+      <mat-cell *matCellDef="let test">
+        <button mat-icon-button (click)="navigateToResults(test.title)">
+          <mat-icon>people</mat-icon>
+        </button> 
+      </mat-cell>
+    </ng-container>
+
+   <ng-container matColumnDef="analysis">
+        <mat-header-cell *matHeaderCellDef> Analysis </mat-header-cell>
+        <mat-cell *matCellDef="let test">
+          <button mat-icon-button (click)="resultAnalysis(test.title)">
+              <!-- <mat-icon>fal fa-chart-bar</mat-icon> -->
+              <i class="fa-solid fa-chart-column"></i>
+            </button>
+    
+      </mat-cell>
+  </ng-container>
+
+    <mat-header-row style="background-color:#365486;color:white" *matHeaderRowDef="['title',  'viewQuestions','copyLink','sendLink','results','analysis']"></mat-header-row>
+    
+    <mat-row *matRowDef="let row; columns: ['title', 'viewQuestions','copyLink','sendLink','results','analysis']"></mat-row>
+    
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[8]" showFirstLastButtons></mat-paginator>
+</div>
+
+
+
+
+
+
+
+

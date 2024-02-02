@@ -1,0 +1,100 @@
+<mat-horizontal-stepper [linear]= "isLinear" style="height: 60vh;" #stepper>
+  <div class="fixed">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel >Fill out your name</ng-template>
+          <mat-card class="instructions-card">
+              <mat-card-header>
+                <mat-card-title>Instructions</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>
+                  Welcome to our platform! Follow these instructions to get started:
+                </p>
+                <ol>
+                  <li>Ensure that you have a stable internet connection throughout the test.</li>
+                  <li>Use a modern web browser for the best experience (Chrome, Firefox, Safari).</li>
+                  <li>Do not use the browser's back/forward buttons during the test.</li>
+                  <li>Do not exit full screen mode of your browser.</li>
+                  <li>Do not switch tabs, it may results auto-submit.</li>
+                  <li>Fill in your personal details in the form provided.</li>
+                  <li>Click the "Start Test" button to begin the assessment.</li>
+                  <li>Complete the questions within the given time.</li>
+                  <li>Submit your answers by clicking the "Submit" button.</li>
+                </ol>
+                <p>
+                  If you encounter any issues or have questions, please contact our support team.
+                </p>
+              </mat-card-content>
+            </mat-card>
+      <div>
+        <button mat-button mat-stroked-button color="primary" matStepperNext>Next <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </form>
+  </mat-step>
+</div>
+<div class="fixed">
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel class="fixed">Fill out Details</ng-template>
+
+      <div *ngIf="showWarningMessage" class="warning-message">
+        {{warningMessage}}
+      </div>
+      <div class="complete-form">
+        <p>
+          <mat-toolbar style="flex-direction: row;justify-content: center;">
+            <span>Please fill your details to start the test</span>
+          </mat-toolbar>
+        </p>
+        
+        <form (ngSubmit)="onSubmit()" #candidateForm="ngForm">
+          <div class="form-container">
+            <mat-form-field>
+              <!-- <mat-label>Name</mat-label>
+              <input matInput id="name" name="name" [(ngModel)]="candidate.name" required> -->
+              <mat-label>Name</mat-label>
+              <input matInput id="name" name="name" #nameInput="ngModel" [(ngModel)]="candidate.name" required pattern="[a-zA-Z\s]+" minlength="3">
+              <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="invalid-input">Invalid name</div>
+            </mat-form-field>
+        
+            <mat-form-field>
+              <!-- <mat-label>Email</mat-label>
+              <input matInput type="text" id="email" name="email" [(ngModel)]="candidate.email" (input)="onEmailChange()" required> -->
+              <mat-label>Email</mat-label>
+              <input matInput type="email" id="email" name="email" #emailInput="ngModel" [(ngModel)]="candidate.email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+              <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched) && emailInput.hasError('containsPlus') && emailInput.hasError('containsPlus')" class="invalid-input">Invalid email</div>
+            </mat-form-field>
+        
+            <mat-form-field>
+              <!-- <mat-label>Phone No.</mat-label>
+              <input matInput type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)]="candidate.phoneNo" required> -->
+              <mat-label>Phone No.</mat-label>
+              <input matInput type="tel" id="phoneNumber" name="phoneNumber" #phoneInput="ngModel" [(ngModel)]="candidate.phoneNo" required pattern="[0-9]{10}" maxlength="10">
+              <div *ngIf="phoneInput.invalid && (phoneInput.dirty || phoneInput.touched)" class="invalid-input">Invalid phone number</div>
+            </mat-form-field>
+        
+            <button mat-raised-button color="primary" type="submit" [disabled]="!candidateForm.valid" >Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <div>
+        <button mat-button mat-stroked-button id="nextButton" color="primary" matStepperNext [disabled]="!candidateService.checkSubmitted()  || showWarningMessage">Next <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </form>
+  </mat-step>
+</div>
+
+    <div class="fixed">
+    <mat-step>
+      <ng-template matStepLabel class="fixed">Start Test</ng-template>
+      <div class="center-content" style="text-align: center;">
+        <div>Click Start to Start the Test</div>
+        <div class="button-container">
+          <!-- <button mat-button matStepperPrevious>Back</button> -->
+          <button mat-button class="custom-green-button" (click)="startTest()">Start</button>
+        </div>
+      </div>
+    </mat-step>
+  </div>

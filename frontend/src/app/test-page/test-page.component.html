@@ -1,0 +1,39 @@
+<!-- <app-timer class="timer"></app-timer> -->
+<!-- <button (click)="onFullScreenButtonClick()">Enter Full Screen</button> -->
+<!-- <div style="text-align: center; width:100%" >
+  <countdown class="timer" #countdown [config]="{leftTime: 3600}"></countdown>
+</div> -->
+<app-navbar [currentIndex]="currentIndex" [totalQuestion]="totalQue" (navigateToQuestion)="goToQuestion($event)"
+  style="background-color: transparent;"></app-navbar>
+
+<!-- Question Page -->
+<div class="questionDiv" *ngIf="questions.length && !showTestEndingMessage">
+  <div>
+    <!-- Include the TimerComponent and listen for the timerEnded event -->
+    <app-timer class="timer" (timerEnded)="onTimerEnded()"></app-timer>
+    <div class="AbuttonDiv">
+      <button mat-raised-button color="primary" class="submitBtn" (click)="onSubmit()">Submit</button>
+    </div>
+  </div>
+
+  <div class="question-container">
+    <h2>Question {{ currentIndex + 1 }}</h2>
+    <p>{{ questions[currentIndex].description }}</p>
+
+    <div *ngIf="questions[currentIndex].questionType=='MCQCODE'"
+      [innerHTML]="sanitized(questions[currentIndex].descriptionWithCode)" class="stored-content"
+      style="white-space: pre-wrap;word-wrap: break-word;">
+    </div>
+    
+    <mat-radio-group [(ngModel)]="answers[currentIndex]" name="options">
+      <mat-radio-button style="color: #61afef;" *ngFor="let option of questions[currentIndex].options" [value]="option">
+        <p>{{ option }}</p>
+      </mat-radio-button>
+    </mat-radio-group>
+
+
+  </div>
+</div>
+
+<!-- Ending Message Page -->
+<app-test-ending-message *ngIf="showTestEndingMessage"></app-test-ending-message>

@@ -1,0 +1,250 @@
+:host{
+  background-color: #eff4f4;
+  display: block;
+  min-height: 100vh;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+}
+.red-button {
+  background-color: red !important;
+}
+
+h2{
+  color:#0F1035;
+  font-weight: bolder;
+  margin: 20px;
+  // width: 270px;
+}
+.h2-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.questions-div{
+  background-color:#365486;
+    padding: 10px;
+    border-radius: 5px;
+}
+// .add-question-btn{
+// border-radius: 0px;
+// font-weight: bolder;
+// border-radius: 4px;
+// width: 150px;
+// height: 60px;
+ 
+// }
+
+.create-question-button{
+  height:40px;
+  width: 180px;
+
+}
+
+.create-test-preview{
+  background-color: rgb(168, 186, 214);
+  margin-left:30px;
+  margin-right:20px;
+  margin-top:100px;
+  width: 300px;
+}
+
+.question-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px; 
+  padding:30px 40px 30px 40px;
+}
+// .mat-card-header{
+//   display: flex;
+//   padding: 20px 20px 0px 20px;
+
+// }
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px; /* Adjust padding as needed */
+}
+.tag-list {
+  margin-top: 10px;
+}
+
+.tag-list-item {
+  display: inline-block;
+  background-color: #c2c8c2; /* Green */
+  color: white;
+  padding: 4px 8px; /* Adjust padding */
+  margin: 4px; /* Adjust margin */
+  border-radius: 5px;
+  white-space: nowrap; /* Prevents tags from wrapping to the next line */
+}
+.option-item {
+  font-size: 14px;
+  color: #555;
+
+}
+
+
+
+.add-remove-btn {
+  font-weight: bolder;
+  background-color: #dadcdd;
+  color: #0a0909;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-remove-btn:hover {
+  background-color: #2980b9;
+}
+.question-card {
+  // width: 300px;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease; /* Add a subtle transition effect */
+}
+
+.question-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow on hover */
+}
+.mat-mdc-list-item, .mat-mdc-list-option {
+  /* width: 100%; */
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.question-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.listitem {
+  // padding: 0px 10px 10px 10px;
+  font-size: 12px;
+}
+
+.option-item {
+  padding: 5px;
+  border-bottom: 1px solid #ddd; /* Add a border between options */
+}
+
+// .contentheader{
+//   height: 30px;
+// }
+mat-card-title{
+  line-height: 1.2rem;
+}
+// .mat-card-actions {
+//   display: flex;
+//   justify-content: flex-end;
+// }
+
+// .add-remove-btn {
+//   cursor: pointer;
+//   background-color: #4caf50;
+//   color: white;
+//   border: none;
+//   padding: 8px 12px;
+//   border-radius: 4px;
+//   font-size: 2rem;
+// }
+
+// button:hover {
+//   background-color: #45a049;
+// }
+
+
+/* question-list.component.css */
+
+.search-bar {
+  display: flex;
+  box-sizing: border-box;
+  margin:auto;
+}
+
+button, .search-bar input {
+  flex: 1;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin:20px;
+}
+
+button{
+  max-width: 80px;
+}
+input[type=text]{
+  outline: none;
+}
+
+
+.create-test-preview { 
+  background-color: #f2f2f2;
+  padding: 10px;
+  // border: 1px solid #ccc;
+  margin-top: 20px;
+  border: 4px solid #365486;
+  
+}
+
+.create-test-preview h2 {
+  color: #f8f5f5;  
+//  color: #3f51b5;
+
+  // color: black;
+  // font-weight: bolder;
+  font-size: medium;
+  font-family: sans-serif;
+//  background-color:#3f51b5;
+background-color: grey;
+ 
+  padding-inline: 10px; 
+  border-radius: 8px; 
+  
+}
+
+.create-test-preview ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.create-test-preview li {
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Optional: Add some additional styling to make it visually appealing */
+.create-test-preview {
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question-expansion-panel{
+  position: relative;
+}
+
+button:disabled{
+  // background-color:#3f51b5;
+  background-color: white;
+  color: black;
+  
+}
+
+.add-upload-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: center;
+}

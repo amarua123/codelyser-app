@@ -1,0 +1,25 @@
+
+  /* side-navbar.component.scss */
+
+.mat-sidenav {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .mat-list-item {
+    padding: 15px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #555;
+    }
+  
+    &.mat-list-item-selected {
+      background-color: #4285f4; // Highlight the active item
+    }
+  }
+  

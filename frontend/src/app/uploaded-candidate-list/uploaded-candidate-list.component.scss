@@ -1,0 +1,96 @@
+.body-container{
+  min-height: 100vh;
+  // background: linear-gradient(to right, #db7ef3, #8fa2f3);
+  background-color: #eff4f4;
+  position: relative;
+}
+/* Adjust overall styling for the mat-table container */
+.container {
+  margin-left: 30px;
+  width: 80vw;
+  position: absolute;
+  right:10px;
+  top:10px;
+}
+
+/* Button styling */
+button {
+  margin-right: 10px;
+}
+.back-button{
+  // position: absolute;
+  // left: 100px;
+  // top:10px;
+  margin-right:40px;
+}
+/* Adjust the height of the header cells */
+.mat-header-cell {
+  height: 30px; /* Set your desired height */
+  min-height: 30px; /* Ensure a minimum height */
+}
+
+/* Adjust the height of the regular cells */
+.mat-cell {
+  height: 25px; /* Set your desired height */
+  min-height: 25px; /* Ensure a minimum height */
+  text-align: center;
+}
+
+/* Adjust the height of the status spans */
+.sent-status, .not-sent-status {
+  line-height: 25px; /* Match the height of the cells */
+}
+
+/* Adjust the height of the send button */
+mat-icon-button {
+  height: 30px; /* Set your desired height */
+}
+
+/* Adjust the height of the rows */
+.mat-row {
+  height: 30px; /* Set your desired height */
+  min-height: 30px; /* Ensure a minimum height */
+}
+
+/* Hover effect for rows */
+.mat-row:hover {
+  background-color: #f0f0f0; /* Light gray background on hover */
+}
+
+/* Add this to your component's CSS file or styles section */
+input[type="text"] {
+  padding: 10px;
+  margin-bottom: 5px;
+  width: 40%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-right: 16px; /* Adjust the margin as needed */
+  color: #333; /* Text color */
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #4CAF50; /* Border color when focused */
+}
+
+/* Optional: Adjust placeholder color */
+::placeholder {
+  color: #999; /* Placeholder color */
+}
+.search-form {
+  position: relative;
+  display: inline-block;
+}
+
+.search-form input[type="text"] {
+  padding-left: 40px; /* Adjust according to the icon size */
+  width: 500px;
+}
+
+.search-form mat-icon {
+  position: absolute;
+  top: 30%;
+  left: 10px; /* Adjust according to the desired position */
+  transform: translateY(-50%);
+}

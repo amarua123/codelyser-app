@@ -1,0 +1,27 @@
+<!-- dashboard.component.html -->
+<app-navigation></app-navigation>
+<div class="dashboard-container">
+  <h1>Welcome to the Dashboard</h1>
+  <div class="options-container">
+    <mat-card class="dashboard-option" matRipple color="accent">
+      <a mat-button routerLink="/manage-group" class="option-link">
+        <mat-icon class="icon">group</mat-icon>
+        <span>Manage Group</span>
+      </a>
+    </mat-card>
+
+    <mat-card class="dashboard-option" matRipple (click)="openCreateUserDialog()" color="accent">
+      <a mat-button class="option-link">
+        <mat-icon class="icon">person_add</mat-icon>
+        <span>Create User</span>
+      </a>
+    </mat-card>
+
+    <mat-card class="dashboard-option" matRipple color="accent">
+      <a mat-button routerLink="/logout" class="option-link" (click)="logout()">
+        <mat-icon class="icon">exit_to_app</mat-icon>
+        <span>Logout</span>
+      </a>
+    </mat-card>
+  </div>
+</div>

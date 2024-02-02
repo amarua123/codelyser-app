@@ -1,0 +1,16 @@
+<!-- create-group-dialog.component.html -->
+
+<h2 mat-dialog-title>Create New Group</h2>
+<div mat-dialog-content>
+  <form [formGroup]="data.form">
+    <mat-form-field>
+      <label for="groupName">Enter Group Name:</label>
+      <input matInput type="text" id="groupName" formControlName="groupName" />
+    </mat-form-field>
+    <!-- Add other form controls as needed -->
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  <button mat-button color="primary" (click)="addNewGroup()">Add Group</button>
+</div>

@@ -1,0 +1,83 @@
+
+<app-navigation></app-navigation>
+
+<div class="body-container">
+  
+  <div class="container">
+    <button mat-raised-button class="back-button" (click)="backButton()"><i class="fas fa-arrow-left"></i></button>
+    <!-- <button mat-raised-button color="primary" style="margin-bottom: 5px;" (click)="openUploadCandidatesDialog()">
+      <i class="fas fa-cloud-upload-alt"></i>
+      Upload Candidates
+    </button> -->
+
+    <!-- <button mat-raised-button (click)="openEmailInviteMessageDialog()">BULK MAILS</button> -->
+
+    <form style="height: 65px;border-radius: 5px;" class="search-form">
+      <mat-icon>search</mat-icon>
+      <input type="text" matInput (input)="applyFilter($event.target)" placeholder="Search email">
+    </form>
+    
+    
+    <mat-table [dataSource]="filterDataSource" class="mat-elevation-z8">
+     
+      <!-- <ng-container matColumnDef="serialNo">
+        <mat-header-cell *matHeaderCellDef>Serial No</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.serialNo }}</mat-cell>
+      </ng-container> -->
+  
+      <ng-container matColumnDef="candidateEmail">
+        <mat-header-cell *matHeaderCellDef>Candidate Email</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.candidateEmail }}</mat-cell>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="testSetId">
+        <mat-header-cell *matHeaderCellDef>Test Set Title</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.testSetTitle }}</mat-cell>
+      </ng-container>
+  
+    
+      <ng-container matColumnDef="linkSentStatus">
+        <mat-header-cell *matHeaderCellDef>Link Sent Status</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span *ngIf="element.linkSentStatus; else notSent" class="sent-status">Sent</span>
+          <ng-template #notSent><span class="not-sent-status">Not Sent</span></ng-template>
+        </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="score">
+        <mat-header-cell *matHeaderCellDef>Score</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.score == null ? "Not Attempted":  element.score}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="report">
+        <mat-header-cell *matHeaderCellDef>Report</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button *ngIf="element.score != null" mat-icon-button (click)="downloadTestReport(element.candidateEmail)">
+            <mat-icon>cloud_download</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      
+      <!-- <ng-container matColumnDef="sendButton">
+        <mat-header-cell *matHeaderCellDef>send invite</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button (click)="openEmailInviteMessageDialog(element.testSetTitle)">
+            <mat-icon>send</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container> -->
+
+     
+      <mat-header-row style="background-color:#365486;color:white"*matHeaderRowDef="displayedColumns"></mat-header-row>
+
+      
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+   
+    <mat-paginator [pageSizeOptions]="[8]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+
+

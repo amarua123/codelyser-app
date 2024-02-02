@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  
+  <div style="display: flex;">
+    <div>
+      <button mat-raised-button class="back-button" (click)="backButton()"><i class="fas fa-arrow-left"></i></button>
+    </div>
+    <div class="library" style="width: 66vw;">
+      <div class="search-bar">
+
+        <input type="text" placeholder="Enter the title of the test" [(ngModel)]="testTitle" />
+        <button class="create" mat-raised-button color="primary" (click)="createTestSet()"
+          [disabled]="!testTitle.trim()">Create</button>
+        <input type="text" placeholder="Search" [(ngModel)]="searchText"  />
+        <div>
+          <!-- <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="selectedDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="selectedDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> -->
+
+       </div>
+
+      </div>
+
+      <div class="h2-button-container">
+        <h2 style="text-align: center;">Select the questions </h2>
+
+        <div class="add-upload-container">
+
+          <button mat-raised-button color="basic" class="create-question-button" (click)="createQuestion()"
+          title="click to add a new question">Add<mat-icon>library_add</mat-icon></button>
+            <button mat-raised-button color="primary"  (click)="openQuestionUploadDialog()">
+      <i class="fas fa-cloud-upload-alt"></i>
+    
+    </button> 
+        </div>
+       
+
+      </div>
+
+
+
+
+      <!-- <div *ngFor="let question of questions; let i = index">
+        <button>hey</button>
+    </div> -->
+
+      <div class="questions-div">
+        <!-- <mat-expansion-panel *ngFor="let question of questions; let i = index" class="question-expansion-panel" > -->
+        <mat-expansion-panel *ngFor="let question of filteredQuestions(); let i = index"
+          class="question-expansion-panel" style="margin-bottom: 5px;" [disabled]="isExpanded(i)">
+          <mat-expansion-panel-header>
+
+            <mat-panel-title>
+              {{i + 1}}. {{ question.description }}
+              <span class="badge badge-secondary"
+                style="color:rgb(246, 247, 249); background-color: #365486; padding-inline: 6px; margin-left: 10px;">{{question.tagSet}}</span>
+
+            </mat-panel-title>
+
+
+
+            <button *ngIf="question.questionType=='MCQCODE'" mat-button color="primary" class="add-remove-btn"
+              (click)="preview(question)">
+              preview
+            </button>
+            <button mat-raised-button class="add-remove-btn" style="background-color: #DCF2F1;"
+              [ngClass]="{'red-button': selectedQuestionsIndex.includes(i)}"
+              [color]="selectedQuestionsIndex.includes(i) ? 'warn' : 'primary'" (click)="addQuestion(i, $event)">
+              {{ selectedQuestionsIndex.includes(i) ? "-" : "+" }}
+            </button>
+
+          </mat-expansion-panel-header>
+
+          <mat-card class="question-card">
+            <!-- <mat-card-header class="contentheader">
+          <mat-card-title class="question-title">{{ question.description }}</mat-card-title>
+        </mat-card-header> -->
+            <mat-card-content>
+              <mat-list class="listitem">
+                <mat-list-item *ngFor="let option of question.options; let j = index" class="option-item">
+                  {{ j + 1 }}. {{ option }}
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+            <mat-card-actions class="card-actions">
+              <!-- <div class="tag-list">
+                <mat-list-item class="tag-list-item" *ngFor="let tag of question.tagSet">{{ tag }}</mat-list-item>
+              </div> -->
+              <!-- <button mat-button class="add-remove-btn" (click)="addQuestion(i,$event)">
+            {{ selectedQuestionsIndex.includes(i) ? "-" : "+" }}
+          </button> -->
+            </mat-card-actions>
+          </mat-card>
+
+        </mat-expansion-panel>
+
+      </div>
+    </div>
+
+    <div class="create-test-preview">
+      <h2 style="text-align: center;background-color: #365486;">Selected Questions:{{ selectedQuestions.length }}</h2>
+      <ul>
+        <li *ngFor="let selectedQuestion of selectedQuestions; let i = index"> {{i+1}} {{ selectedQuestion }}</li>
+      </ul>
+    </div>
+  </div>

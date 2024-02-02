@@ -1,0 +1,100 @@
+/* listofusers.component.css */
+
+/* Navbar styling */
+:host {
+  // background: linear-gradient(to right, #db7ef3, #8fa2f3);
+  background-color: #eff4f4; ;
+  color:rgb(244, 238, 238);
+  display: block;
+  min-height: 100vh;
+}
+
+.navbar {
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color:#0F1035;
+  color: #fff;
+  
+}
+
+.content-container {
+  display: flex;
+  justify-content: flex-end;
+  /* Align content to the right */
+}
+
+.search-input {
+  margin-right: auto;
+  color:#0e161b;
+
+}
+
+.search-bar-wrapper {
+  flex-grow: 1;
+  margin-right: auto;
+}
+
+
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid #7b7777;
+  border-radius: 4px;
+  outline: none;
+  // margin-left:950px;
+}
+
+/* Add User button styling */
+.add-user-button-wrapper button {
+  background-color: #1714eb;
+  color: #fff;
+}
+
+/* Manage group container styling */
+.manage-group-container {
+  margin-top: 20px;
+}
+
+.content-container {
+  padding: 20px;
+}
+
+/* Existing groups styling */
+.existing-groups {
+  display: flex;
+}
+
+// .search-bar {
+//   margin-bottom: 10px;
+// }
+
+/* Container box styling */
+.container-box {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  max-width: 300px;
+}
+
+/* User list styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Router outlet styling */
+router-outlet {
+  display: block;
+  margin-top: 20px;
+}

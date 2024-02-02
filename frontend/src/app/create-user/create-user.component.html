@@ -1,0 +1,25 @@
+<!-- create-user.component.html -->
+<h2>Create User</h2>
+
+<form #form="ngForm">
+  <div class="form-div">
+    <mat-form-field>
+      <input matInput name="name" placeholder="Name" [(ngModel)]="userName" required>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput name="email" placeholder="Email" [(ngModel)]="userEmail" required>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-select name="access" placeholder="Access" [(ngModel)]="userAccess" required>
+        <mat-option value="ADMIN">Admin</mat-option>
+        <mat-option value="GROUP">Group</mat-option>
+        <mat-option value="RECRUITER">Recruiter</mat-option>
+        <mat-option value="LEADER">Leader</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-button (click)="onCreateUser()">Create User</button>
+  </div>
+</form>
